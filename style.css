@@ -122,4 +122,21 @@ ul ul a {
 h1{
 color:red;
 }
-
+/* Part of speech identifier */
+#main{
+  width:100%;
+  margin-right:10px;
+  padding:10px;
+  text-align:center;
+  }
+#main-side{
+  width:100%;
+  padding:20px;
+   text-align:center;
+  }
+ #s1,#s2,#s3,#s4,#s5,#s6{
+   width:25%;
+   padding:20px;
+   float:left;
+   margin-left:10px;
+  }
