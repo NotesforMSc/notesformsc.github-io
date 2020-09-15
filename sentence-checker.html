@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>JavaScript Projects</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>NotesforMSc Projects</h3>
+            </div>
+        
+            <ul class="list-unstyled components">
+                <p>Categories</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">JavaScript Projects</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Word Counter</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+         <header>
+         
+          <h1>Input Your Sentence</h1>
+</header>
+<section id="main">
+  <article>
+          <textarea id="txt" rows="5" cols="60" >
+          </textarea>
+          <br>
+          <button onclick = "findcompound()" id="bt" >Check Sentence Type</button>
+          <button onclick="location.reload()" id="bt2" >Refresh</button>
+  </article>
+  <article>
+     <h3 id="comp"></h3>
+  </article>
+</section>
+<script>
+function findcompound( ){
+let myStr = " ";
+myStr = document.getElementById("txt").value;
+let v1= myStr. search(/, for|, and|, nor|, but|, or|, yet|, so/ig);
+let v2 = myStr.search(/is|are|was/g);
+if(v1 != -1)
+{
+     document.getElementById("comp").innerHTML = "Compound Sentence";
+}
+else if (v2 != -1 && v1 == -1)
+{
+      document.getElementById("comp").innerHTML = "Simple Sentence";
+}
+else 
+{
+       let book = myStr.split(' ');
+       let verbs = ["plays", "eats", "sleeps", "jumps", "reads", "drinks"];
+
+      for (let i =1;i<= book.length;i++)
+     {
+          for( let  j =1;j <= verbs.length;j++)
+         {
+               if( book[i] === verbs[j])
+             {
+                  document.getElementById("comp").innerHTML = "Simple Sentence";
+                  break;
+              } 
+           }
+       }
+}
+
+let v4 = myStr.search(/After|Although|As|Because|Before|If|Since|Though|Unless|When|Until|Whenever|Whereas|Wherever|While/ig);
+if (v4 != -1)
+{
+      document.getElementById("comp").innerHTML = "Complex Sentence";
+}
+}
+</script>
+  <section>
+    <header>
+      <h3> About Sentence Checker Tool </h3>
+    </header>
+    <article>
+       <p>
+         The sentence checker tool is a simple script that accepts a sentence as input and identified its type. The result is display in the output box. 
+      </p>
+    </article>
+     <header>
+      <h3> How to use Sentence Checker Tool </h3>
+    </header>
+    <article>
+       <p>
+         It is very easy to use this tool. Either you enter a single sentence by typing it or paste it from some other source. Then click the button "Check Sentence Type". The result is computed and displayed immediatly. If you want to delete or clear the textarea, simply click the "Refresh" button. Note that the information will permanantly disappear if click refresh; therefore, I recommend that you keep a copy of all the data before using it here.</p>
+    </article>
+     <header>
+      <h3> Types of Sentences </h3>
+    </header>
+    <article>
+       <p>
+         There are three types of sentence in English language than we try to identify using this script. They are listed below.
+      </p>
+      <ul>
+        <li>SIMPLE SENTENCE</li>
+        <li>COMPOUND SENTENCE</li>
+        <li>COMPLEX SENTENCE</li>
+      </ul>
+    </article>
+  </section>
+
+</body>
+
+</html>
