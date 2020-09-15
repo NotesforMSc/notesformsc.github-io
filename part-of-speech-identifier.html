@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>JavaScript Projects</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>NotesforMSc Projects</h3>
+            </div>
+        
+            <ul class="list-unstyled components">
+                <p>Categories</p>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">JavaScript Projects</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">Word Counter</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Portfolio</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+         <div id="main">
+<div id="st">
+<textarea cols="45" id="txt" rows="8"> </textarea>
+<br />
+<button id="btn" onclick="find_verbs()">Find Verbs </button><button id="btn2" onclick="find_adjv()">Find Adjectives</button><button id="btn3" onclick="find_articles()">Find Articles</button><button onclick="location.reload()">Refresh</button><br />
+<button id="btn4" onclick="find_prep()">Find Prepositions</button>
+<button id="btn5" onclick="find_conj()">Find Conjunctions</button>
+<button id="btn6" onclick="find_pron()">Find Pronouns</button>
+</div>
+</div>
+  <div id="main-side">
+<div id="s1">
+<h3>Verbs</h3>
+<hr />
+<p id="comp"></p>
+</div>
+<div id="s2">
+<h3>Adjectives</h3>
+<hr />
+<p id="comp2"></p>
+</div>
+<div id="s2">
+<h3>Articles</h3>
+<hr />
+<p id="comp3"></p>
+</div>
+<div id="s4">
+<h3>Prepositions</h3>
+<hr />
+<p id="comp4"></p>
+</div>
+<div id="s5">
+<h3>Conjunctions</h3>
+<hr />
+<p id="comp5"></p>
+</div>
+<div id="s6">
+<h3>Pronouns</h3>
+<hr />
+<p id="comp6"></p>
+</div>
+<div>
+<script>
+
+function find_verbs()
+{
+var myStr = document.getElementById("txt").value;
+var temp = myStr.trim();
+let data = temp.match(/(\w+)|[^\s][^.]/g);
+
+let db = ["be","have","end","do","drink","say","go","can","get","would","make","know","will","think","take","see","come","could","want","look","use","find","give","tell","work","may","should","call","try","ask","need","feel","become","leave","put","mean","keep","let","begin","seem","help","talk","turn","start","might","said","show","hear","play","run","move","like","locate","live","believe","hold","bring","happen","must","write","provide","sit","stand","lose","pay","meet","include","continue","set","learn","change","lead","understand","watch","follow","stop","create","speak","read","allow","add","spend","grow","open","walk","win","offer","remember","love","consider","appear","buy","wait","serve","die","send","expect","build","stay","all","cut","reach","kill","remain","return","convert","lock","is","was","were"];
+for(let i =0;i < data.length;i++)
+{
+
+         for(let j =0;j < db.length;j++)
+         {
+                   
+                      if (data[i] == db[j])
+                     {
+                       let value = data[i];
+                      document.getElementById("comp").innerHTML += value + "<br>";
+                     }
+          }
+
+}
+    
+} //function ends here
+
+//find all adjectives
+function find_adjv()
+{
+
+var myStra = document.getElementById("txt").value;
+var tempa = myStra.trim();
+let dataa = tempa.match(/(\w+)|[^\s][^.]/g);
+
+let db2 = ["defiant","homeless","adorable","delightful","homely","quaint","adventurous","depressed","horrible","aggressive","determined","hungry","real","agreeable","different","hurt","relieved","alert","difficult","repulsive","alive","disgusted","ill","rich","amused","distinct","important","angry","disturbed","impossible","scary","annoyed","dizzy","inexpensive","selfish","annoying","doubtful","innocent","shiny","anxious","drab","inquisitive","shy","arrogant","dull","itchy","silly","ashamed","sleepy","attractive","eager","jealous","smiling","average","easy","jittery","smoggy","awful","elated","jolly","sore","elegant","joyous","sparkling","","bad","embarrassed","splendid","beautiful","enchanting","kind","spotless","better","encouraging","stormy","bewildered","energetic","lazy","strange","black","enthusiastic","light","stupid","bloody","envious","lively","successful","blue","evil","lonely","super","blueeyed","excited","long","blushing","expensive","lovely","talented","bored","exuberant","lucky","tame","brainy","tender","brave","fair","magnificent","tense","breakable","faithful","misty","terrible","bright","famous","modern","tasty","busy","fancy","motionless","thankful","fantastic","muddy","thoughtful","calm","fierce","mushy","thoughtless","careful","filthy","mysterious","tired","cautious","fine","tough","charming","foolish","nasty","troubled","cheerful","fragile","naughty","clean","frail","nervous","ugliest","clear","frantic","nice","ugly","clever","friendly","nutty","uninterested","cloudy","frightened","unsightly","clumsy","funny","obedient","unusual","colorful","obnoxious","upset","combative","gentle","odd","uptight","comfortable","gifted","oldfashioned","concerned","glamorous","open","vast","condemned","gleaming","outrageous","victorious","confused","glorious","outstanding","vivacious","cooperative","good","courageous","gorgeous","panicky","wandering","crazy","graceful","perfect","weary","creepy","grieving","plain","wicked","crowded","grotesque","pleasant","wideyed","cruel","grumpy","poised","wild","curious","poor","witty","cute","handsome","powerful","worrisome","happy","precious","worried","dangerous","healthy","prickly","wrong","dark","helpful","proud","dead","helpless","putrid","zany","defeated","hilarious","puzzled","zealous","big","red","yellow","blue","green","giant"];
+for(let i = 0; i <= dataa.length;i++)
+{
+     for( let j=0;j<db2.length;j++)
+     {
+          
+            if(dataa[i] == db2[j])
+           {
+                  let value2 = dataa[i];
+                  document.getElementById("comp2").innerHTML += value2 + "</br>";
+            }
+    }
+}
+} //function ends here
+
+//find all Pronouns
+function find_articles()
+{
+
+var myStrar = document.getElementById("txt").value;
+var tempar = myStrar.trim();
+let dataar = tempar.match(/(\w+)|[^\s][^.]/g);
+
+let db3 = ["a","an","the","A", "An", "The"];
+for(let i = 0; i <= dataar.length;i++)
+{
+     for( let j=0;j<db3.length;j++)
+           {
+           if(dataar[i] == db3[j])
+           {
+                  let value3 = dataar[i];
+                  document.getElementById("comp3").innerHTML += value3 + "</br>";
+            }
+    }
+}
+} //function ends here
+
+function find_prep()
+{
+var myStrprep = document.getElementById("txt").value;
+var tempprep = myStrprep.trim();
+let dataprep = tempprep.match(/(\w+)|[^\s][^.]/g);
+
+let db4 = ["about","above","across","after","against","among","around","at","before","behind","below","beside","between","by","down","during","for","from","in","inside","into","near","of","off","on","out","over","through","to","toward","under","up","with","aboard","along","amid","as","beneath","beyond","but","concerning","considering","despite","except","following","like","minus","next","onto","opposite","outside","past","per","plus","regarding","round","save","since","than","till","underneath","unlike","until","upon","versus","via","within","without"];
+for(let i =0;i < dataprep.length;i++)
+{
+
+         for(let j =0;j < db4.length;j++)
+         {
+                   
+                      if (dataprep[i] == db4[j])
+                     {
+                       let value4 = dataprep[i];
+                      document.getElementById("comp4").innerHTML += value4 + "<br>";
+                     }
+          }
+
+}
+    
+} //function ends here
+function find_conj()
+{
+var myStrconj = document.getElementById("txt").value;
+var tempconj = myStrconj.trim();
+let dataconj = tempconj.match(/(\w+)|[^\s][^.]/g);
+
+let db5 = ["after","as","as long as","as soon as","as though","before","even if","if","if when","inasmuch","just as","now","now ","that","once","provided","that","since","supposing","that","though","until","whenever","whereas","wherever","which","who","for","and","nor","but","or","yet"];
+for(let i =0;i < dataconj.length;i++)
+{
+
+         for(let j =0;j < db5.length;j++)
+         {
+                   
+                      if (dataconj[i] == db5[j])
+                     {
+                       let value5 = dataconj[i];
+                      document.getElementById("comp5").innerHTML += value5 + "<br>";
+                     }
+          }
+
+}
+    
+} //function ends here
+
+//Find pronouns
+function find_pron()
+{
+var myStrpron = document.getElementById("txt").value;
+var temppron = myStrpron.trim();
+let datapron = temppron.match(/(\w+)|[^\s][^.]/g);
+
+let db6 = ["I","we","you","he","she","it","they","me","us","her","him","them","mine","ours","yours","hers","his","theirs","myself","yourself","herself","himself","itself","ourselves","yourselves","themselves","all","another","any","anybody","anyone","anything","both","each","either","everybody","everyone","everything","few","many","most","neither","nobody","none","no one","nothing","one","other","others","several","some","somebody","someone","something","such"];
+for(let i =0;i < datapron.length;i++)
+{
+
+         for(let j =0;j < db6.length;j++)
+         {
+                   
+                      if (datapron[i] == db6[j])
+                     {
+                       let value6 = datapron[i];
+                      document.getElementById("comp6").innerHTML += value6 + "<br>";
+                     }
+          }
+
+}
+    
+} //function ends here
+
+</script>
+</div></div>
+</body>
+
+</html>
